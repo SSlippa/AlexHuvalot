@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+body {font: 14px/21px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+  line-height: 1.8;
+  color: #818181;}
+
+
+.logo {
+  position: relative;
+  background-image: url("assets/label.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: #3e469c;
+  color: #fff;
+  padding: 20% 0;
+  font-family: Montserrat, sans-serif;
+}
+
+.tele {
+  position: absolute ;
+  margin: 14% 15px;
+}

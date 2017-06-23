@@ -1,0 +1,40 @@
+<div [@flyInOut]="state" class="bg-grey" >
+<form (submit)="sendEmail(message)" style="margin-top: 50px">
+  <div id="contact"  class="container-fluid bg-grey">
+    <h2 class="text-center">КОНТАКТЫ</h2>
+    <div class="row">
+      <div class="col-sm-5">
+        <p>Хотите узнать цену и договориться, звоните или оставьте заявку и мы перезвоним</p>
+        <p>Ждём ваших звонков в любое время, всегда к вашим услугам</p>
+        <p><span class="glyphicon glyphicon-map-marker"></span>Холон</p>
+        <p><span class="glyphicon glyphicon-phone"></span>052-2980613</p>
+        <p><span class="glyphicon glyphicon-envelope"></span>AlexHuvalot@gmail.com</p>
+        <p><a href="https://www.facebook.com/groups/328120727579669/" target="_blank"><img [src]="'/assets/facebook.png'" height="30" width="30"/></a></p>
+
+      </div>
+      <div class="col-sm-7 slideanim">
+        <div class="row">
+          <div class="col-sm-6 form-group">
+            <input class="form-control" id="name" name="name" placeholder="Имя" type="text" required>
+          </div>
+          <div class="col-sm-6 form-group">
+            <input class="form-control" id="telephon" name="telephon" placeholder="Телефон" type="text" required>
+          </div>
+        </div>
+        <textarea class="form-control" id="comments" name="comments" placeholder="Сообщение" rows="5"></textarea><br>
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <button class="btn btn-default pull-right" type="submit">Послать заявку</button>
+          </div>
+          <div class="messages"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+
+
+
+
+

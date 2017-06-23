@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AppService, IMessage} from '../app.service';
+import swal, { SweetAlertOptions } from 'sweetalert2';
 
 @Component({
   selector: 'app-logo',
@@ -14,13 +15,17 @@ export class LogoComponent implements OnInit {
   ngOnInit() {
   }
 
-  sendEmail(message: IMessage) {
-    this.appService.sendEmail(message).subscribe(res => {
+  sendEmail() {
+    this.appService.sendEmail(this.message).subscribe(res => {
       console.log('AppComponent Success', res);
+      swal(
+        'Сообщение отправлено!', '', 'success'
+      );
     }, error => {
       console.log('AppComponent Error', error);
+      swal ('Упс...', 'Что-то пошло не так', 'error');
     });
-    console.log(message)
+    console.log(this.message)
   }
 
 }

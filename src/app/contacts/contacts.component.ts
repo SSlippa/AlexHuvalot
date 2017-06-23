@@ -2,6 +2,7 @@ import {Component, HostListener, Inject, OnInit} from '@angular/core';
 import {DOCUMENT} from '@angular/platform-browser';
 import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
 import {AppService, IMessage} from '../app.service';
+import swal, { SweetAlertOptions } from 'sweetalert2';
 
 @Component({
   selector: 'app-contacts',
@@ -30,6 +31,7 @@ export class ContactsComponent implements OnInit {
   state = 'normal';
   message: IMessage = {};
 
+
   constructor(@Inject(DOCUMENT) private document: Document,
               private appService: AppService) { }
 
@@ -45,13 +47,17 @@ export class ContactsComponent implements OnInit {
     }
   }
 
-  sendEmail(message: IMessage) {
-    this.appService.sendEmail(message).subscribe(res => {
+  sendEmail() {
+    this.appService.sendEmail(this.message).subscribe(res => {
       console.log('AppComponent Success', res);
+      swal(
+        'Сообщение отправлено!', '', 'success'
+      );
     }, error => {
       console.log('AppComponent Error', error);
+      swal ('Упс...', 'Что-то пошло не так', 'error');
     });
-    console.log(message)
+    console.log(this.message)
   }
 
 

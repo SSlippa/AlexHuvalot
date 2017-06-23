@@ -12,7 +12,7 @@ import swal, { SweetAlertOptions } from 'sweetalert2';
     trigger('flyInOut', [
       state('normal', style({
         opacity: 0.3,
-        transform: 'translateY(-150px)'
+        transform: 'translateY(150px)'
       })),
       state('in', style({
         opacity: 1,

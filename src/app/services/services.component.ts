@@ -12,21 +12,21 @@ import {DOCUMENT} from '@angular/platform-browser';
     trigger('flyInOut', [
       state('normal', style({
         opacity: 0,
-        transform: 'translateY(-150px)'
+        transform: 'translateY(150px)'
       })),
       transition('normal => in', animate(700, keyframes([
         style({
-          transform: 'translateY(-130px)',
+          transform: 'translateY(130px)',
           opacity: 0,
           offset: 0
         }),
         style({
-          transform: 'translateY(-50px)',
+          transform: 'translateY(50px)',
           opacity: 0.2,
           offset: 0.3
         }),
         style({
-          transform: 'translateY(-20px)',
+          transform: 'translateY(20px)',
           opacity: 0.3,
           offset: 0.8
         }),
@@ -52,6 +52,7 @@ export class ServicesComponent implements OnInit {
   ];
 
   state = 'normal';
+  state2 = 'normal';
   // public navIsFixed: boolean = false;
 
 
@@ -64,8 +65,11 @@ export class ServicesComponent implements OnInit {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const number = this.document.body.scrollTop;
-    if (number > 100) {
+    if (number > 450) {
       this.state = 'in';
+    }
+    if (number > 650) {
+      this.state2 = 'in';
     }
   }
 

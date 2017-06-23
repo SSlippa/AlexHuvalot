@@ -1,7 +1,7 @@
 <div class="logo" style="margin-top: 50px">
   <div class="tele">
     <!--<form id="telefon-form" method="post" action="../../assets/contact.php" >-->
-    <form (submit)="sendEmail()" #f="ngForm">
+    <form (submit)="sendEmail(f)" #f="ngForm">
       <div class="messagesTop"></div>
       <div class="input-group" >
           <input type="number" name="telephon" class="form-control" size="15" placeholder="Телефон" required [(ngModel)]="message.telephon">

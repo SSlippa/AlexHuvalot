@@ -3,6 +3,7 @@ import {DOCUMENT} from '@angular/platform-browser';
 import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
 import {AppService, IMessage} from '../app.service';
 import swal, { SweetAlertOptions } from 'sweetalert2';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-contacts',
@@ -47,7 +48,7 @@ export class ContactsComponent implements OnInit {
     }
   }
 
-  sendEmail() {
+  sendEmail(form: NgForm) {
     this.appService.sendEmail(this.message).subscribe(res => {
       console.log('AppComponent Success', res);
       swal(
@@ -57,7 +58,8 @@ export class ContactsComponent implements OnInit {
       console.log('AppComponent Error', error);
       swal ('Упс...', 'Что-то пошло не так', 'error');
     });
-    console.log(this.message)
+    console.log(this.message);
+    form.reset();
   }
 
 

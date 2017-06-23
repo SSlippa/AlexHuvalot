@@ -39,7 +39,7 @@ export class ContactsComponent implements OnInit {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const number = this.document.body.scrollTop;
-    if (number > 1200) {
+    if (number > 1100) {
       this.state = 'in';
       this.visibleTrue = 'block'
     }

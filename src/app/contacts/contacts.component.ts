@@ -4,6 +4,7 @@ import {animate, keyframes, state, style, transition, trigger} from '@angular/an
 import {AppService, IMessage} from '../app.service';
 import swal, { SweetAlertOptions } from 'sweetalert2';
 import {NgForm} from '@angular/forms';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-contacts',
@@ -34,7 +35,15 @@ export class ContactsComponent implements OnInit {
 
 
   constructor(@Inject(DOCUMENT) private document: Document,
-              private appService: AppService) { }
+              private appService: AppService,
+              private translate: TranslateService) {
+
+    translate.addLangs(['ru', 'heb']);
+    translate.setDefaultLang('ru');
+
+    let browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/heb|ru/) ? browserLang : 'heb');
+  }
 
   ngOnInit() {
   }

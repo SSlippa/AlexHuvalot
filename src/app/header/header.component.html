@@ -7,19 +7,24 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a routerLink="/" class="navbar-brand" id="myPage" >Alex Перевозки</a>
+          <a routerLink="/" class="navbar-brand" id="myPage" >{{ 'LogoName' | translate }}</a>
         </div>
 
         <div class="collapse navbar-collapse in" [ngClass]="{ 'in': isIn }">
           <ul class="nav navbar-nav navbar-right">
-            <li><a pageScroll href="#about">О Нас</a></li>
-            <li><a pageScroll href="#services">Услуги</a></li>
+            <li><a pageScroll href="#about">{{ 'About' | translate }}</a></li>
+            <li><a pageScroll href="#services">{{ 'Services' | translate }}</a></li>
             <!--<li><a pageScroll href="#portfolio">Фотографии</a></li>-->
-            <li><a pageScroll href="#contact">Контакты</a></li>
+            <li><a pageScroll href="#contact">{{ 'Contacts' | translate }}</a></li>
+            <li><select class="form-control"  #langSelect (change)="translate.use(langSelect.value)">
+              <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+            </select></li>
           </ul>
         </div>
       </div>
     </nav>
+
+
 
 
 

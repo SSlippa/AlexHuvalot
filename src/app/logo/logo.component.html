@@ -4,9 +4,9 @@
     <form (submit)="sendEmail(f)" #f="ngForm">
       <div class="messagesTop"></div>
       <div class="input-group" >
-          <input type="number" name="telephon" class="form-control" size="15" placeholder="Телефон" required [(ngModel)]="message.telephon">
+          <input type="number" name="telephon" class="form-control" size="15" placeholder="{{ 'Telefon' | translate}}" required [(ngModel)]="message.telephon">
           <div class="input-group-btn">
-            <button type="submit" class="btn btn-danger" [disabled]="!f.valid">Перезвоните мне</button>
+            <button type="submit" class="btn btn-danger" [disabled]="!f.valid">{{ 'CallBack' | translate}}</button>
           </div>
       </div>
     </form>

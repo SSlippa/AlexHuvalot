@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,14 @@ export class HeaderComponent implements OnInit {
     this.isIn = bool === false ? true : false;
   }
 
-  constructor() { }
+  constructor(private translate: TranslateService) {
+
+  translate.addLangs(['ru', 'heb']);
+  translate.setDefaultLang('ru');
+
+  let browserLang = translate.getBrowserLang();
+  translate.use(browserLang.match(/heb|ru/) ? browserLang : 'heb');
+  }
 
   ngOnInit() {
   }

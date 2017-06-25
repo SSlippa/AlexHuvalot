@@ -1,0 +1,15 @@
+
+<div class="logo" style="margin-top: 50px">
+  <div class="tele">
+    <!--<form id="telefon-form" method="post" action="../../assets/contact.php" >-->
+    <form (submit)="sendEmail(message)">
+      <div class="messagesTop"></div>
+      <div class="input-group" >
+          <input type="text" name="telephon" class="form-control" size="15" placeholder="Телефон" required [(ngModel)]="message.telephon">
+          <div class="input-group-btn">
+            <button type="submit" class="btn btn-danger">Перезвоните мне</button>
+          </div>
+      </div>
+    </form>
+    </div>
+</div>

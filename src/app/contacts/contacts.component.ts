@@ -2,6 +2,9 @@ import {Component, HostListener, Inject, OnInit} from '@angular/core';
 import {DOCUMENT} from '@angular/platform-browser';
 import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
 import {AppService, IMessage} from '../app.service';
+import swal, { SweetAlertOptions } from 'sweetalert2';
+import {NgForm} from '@angular/forms';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-contacts',
@@ -11,7 +14,7 @@ import {AppService, IMessage} from '../app.service';
     trigger('flyInOut', [
       state('normal', style({
         opacity: 0.3,
-        transform: 'translateY(-150px)'
+        transform: 'translateY(150px)'
       })),
       state('in', style({
         opacity: 1,
@@ -30,8 +33,17 @@ export class ContactsComponent implements OnInit {
   state = 'normal';
   message: IMessage = {};
 
+
   constructor(@Inject(DOCUMENT) private document: Document,
-              private appService: AppService) { }
+              private appService: AppService,
+              private translate: TranslateService) {
+
+    translate.addLangs(['ru', 'heb']);
+    translate.setDefaultLang('ru');
+
+    let browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/heb|ru/) ? browserLang : 'heb');
+  }
 
   ngOnInit() {
   }
@@ -39,20 +51,24 @@ export class ContactsComponent implements OnInit {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const number = this.document.body.scrollTop;
-    if (number > 450) {
+    if (number > 1100) {
       this.state = 'in';
       this.visibleTrue = 'block'
     }
   }
 
-  sendEmail(message: IMessage) {
-    this.appService.sendEmail(message).subscribe(
-      res => {
+  sendEmail(form: NgForm) {
+    this.appService.sendEmail(this.message).subscribe(res => {
       console.log('AppComponent Success', res);
+      swal(
+        'Сообщение отправлено!', '', 'success'
+      );
     }, error => {
       console.log('AppComponent Error', error);
+      swal ('Упс...', 'Что-то пошло не так', 'error');
     });
-    console.log(message)
+    console.log(this.message);
+    form.reset();
   }
 
 

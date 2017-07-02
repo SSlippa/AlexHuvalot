@@ -3,18 +3,12 @@
   <div id="contact"  class="container-fluid bg-grey">
     <h2 class="text-center">{{ 'Contacts' | translate }}</h2>
     <div class="row">
-      <div class="col-sm-5">
-        <p class="text-right" *ngIf="translate.currentLang === 'heb'; else other_content">{{ 'ContactText1' | translate }}</p>
-        <ng-template #other_content>
-          {{ 'ContactText1' | translate }}<br>
-        </ng-template>
-        <p class="text-right" *ngIf="translate.currentLang === 'heb'; else other_content2">{{ 'ContactText2' | translate }}</p>
-        <ng-template #other_content2>
-          {{ 'ContactText2' | translate }}
-        </ng-template>
-        <p><span class="glyphicon glyphicon-map-marker"></span>{{ 'City' | translate }}</p>
-        <p><span class="glyphicon glyphicon-phone"></span>052-2980613</p>
-        <p><span class="glyphicon glyphicon-envelope"></span>AlexHuvalot@gmail.com</p>
+      <div class="col-sm-5" [ngClass]="{'text-right pull-right': translate.currentLang === 'heb'}">
+        <p>{{ 'ContactText1' | translate }}</p>
+        <p>{{ 'ContactText2' | translate }}</p>
+        <p><span [ngClass]="{' pull-right': translate.currentLang === 'heb'}" class="glyphicon glyphicon-map-marker"></span>{{ 'City' | translate }}</p>
+        <p><span [ngClass]="{' pull-right': translate.currentLang === 'heb'}" class="glyphicon glyphicon-phone"></span>052-2980613</p>
+        <p><span [ngClass]="{' pull-right': translate.currentLang === 'heb'}" class="glyphicon glyphicon-envelope"></span>AlexHuvalot@gmail.com</p>
         <p><a href="https://www.facebook.com/groups/328120727579669/" target="_blank"><img [src]="'/assets/facebook.png'" height="30" width="30"/></a></p>
 
       </div>

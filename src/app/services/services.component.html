@@ -3,18 +3,27 @@
     <h4>{{ 'weProvide' | translate }}</h4>
     <br>
     <div class="row slideanim"  >
-      <div class="col-sm-4 serv" *ngFor="let service of services | slice:0:3" [@flyInOut]="state" [ngStyle]="{display: visibleTrue}" >
+      <div class="col-sm-4 serv" *ngFor="let service of services | slice:0:3; let i = index" [@flyInOut]="state" [ngStyle]="{display: visibleTrue}">
         <span><img  [src]="service.imgPath" alt="{{ service.name }}"  height="50" width="50"/></span>
-        <h4>{{ service.name }}</h4>
-        <p>{{ service.desc }}</p>
+        <h4 *ngIf="i === 0"> {{ 'service0.name'  | translate}}</h4>
+        <h4 *ngIf="i === 1"> {{ 'service1.name'  | translate}}</h4>
+        <h4 *ngIf="i === 2"> {{ 'service2.name'  | translate}}</h4>
+        <p *ngIf="i === 0">{{ 'service0.desc'  | translate }}</p>
+        <p *ngIf="i === 1">{{ 'service1.desc'  | translate }}</p>
+        <p *ngIf="i === 2">{{ 'service2.desc'  | translate }}</p>
+
       </div>
     </div>
   <br><br>
     <div class="row slideanim"  >
-      <div class="col-sm-4 serv" *ngFor="let service of services | slice:3" [@flyInOut]="state2" [ngStyle]="{display: visibleTrue}">
+      <div class="col-sm-4 serv" *ngFor="let service of services | slice:3; let i = index" [@flyInOut]="state2" [ngStyle]="{display: visibleTrue}">
         <span><img  [src]="service.imgPath" alt="{{ service.name }}"  height="50" width="50"/></span>
-        <h4>{{ service.name }}</h4>
-        <p>{{ service.desc }}</p>
+        <h4 *ngIf="i === 0"> {{ 'service3.name'  | translate}}</h4>
+        <h4 *ngIf="i === 1"> {{ 'service4.name'  | translate}}</h4>
+        <h4 *ngIf="i === 2"> {{ 'service5.name'  | translate}}</h4>
+        <p *ngIf="i === 0">{{ 'service3.desc'  | translate }}</p>
+        <p *ngIf="i === 1">{{ 'service4.desc'  | translate }}</p>
+        <p *ngIf="i === 2">{{ 'service5.desc'  | translate }}</p>
       </div>
     </div>
 </div>

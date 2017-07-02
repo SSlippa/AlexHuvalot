@@ -9,12 +9,6 @@ import {TranslateService} from '@ngx-translate/core';
 export class AboutComponent implements OnInit {
 
   constructor(private translate: TranslateService) {
-
-    translate.addLangs(['ru', 'heb']);
-    translate.setDefaultLang('ru');
-
-    let browserLang = translate.getBrowserLang();
-    translate.use(browserLang.match(/heb|ru/) ? browserLang : 'heb');
   }
 
   ngOnInit() {

@@ -2,6 +2,7 @@ import {Component, HostListener, Inject, OnInit} from '@angular/core';
 import {Service} from '../shared/service.model';
 import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
 import {DOCUMENT} from '@angular/platform-browser';
+import {TranslateService} from '@ngx-translate/core';
 
 
 @Component({
@@ -55,9 +56,11 @@ export class ServicesComponent implements OnInit {
   state2 = 'normal';
   // public navIsFixed: boolean = false;
 
+  serv;
 
-
-  constructor(@Inject(DOCUMENT) private document: Document) { }
+  constructor(@Inject(DOCUMENT) private document: Document,
+              private translate: TranslateService) {
+  }
 
   ngOnInit() {
   }

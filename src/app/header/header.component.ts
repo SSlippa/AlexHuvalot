@@ -8,6 +8,7 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class HeaderComponent implements OnInit {
 
+  language = ['עיברית', 'русский'];
   isIn = false;   // store state
   toggleState() { // click handler
     let bool = this.isIn;
@@ -16,14 +17,17 @@ export class HeaderComponent implements OnInit {
 
   constructor(private translate: TranslateService) {
 
-  translate.addLangs(['ru', 'heb']);
-  translate.setDefaultLang('ru');
+  translate.addLangs(['heb', 'ru']);
+  translate.setDefaultLang('heb');
 
   let browserLang = translate.getBrowserLang();
-  translate.use(browserLang.match(/heb|ru/) ? browserLang : 'heb');
+    translate.use(browserLang.match(/heb|ru/) ? browserLang : 'heb');
+
+
   }
 
   ngOnInit() {
+
   }
 
 }

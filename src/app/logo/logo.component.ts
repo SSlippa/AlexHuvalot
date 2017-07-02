@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AppService, IMessage} from '../app.service';
-import swal, { SweetAlertOptions } from 'sweetalert2';
+import swal from 'sweetalert2';
 import {NgForm} from '@angular/forms';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-logo',
@@ -11,7 +12,8 @@ import {NgForm} from '@angular/forms';
 export class LogoComponent implements OnInit {
   message: IMessage = {};
 
-  constructor(private appService: AppService) {}
+  constructor(private appService: AppService,
+              private translate: TranslateService) {}
 
   ngOnInit() {
   }

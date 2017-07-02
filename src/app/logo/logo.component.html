@@ -1,4 +1,4 @@
-<div class="logo" style="margin-top: 50px">
+<div [ngClass]="{logoRu: translate.currentLang === 'ru', logoHeb: translate.currentLang === 'heb' }" style="margin-top: 50px">
   <div class="tele">
     <!--<form id="telefon-form" method="post" action="../../assets/contact.php" >-->
     <form (submit)="sendEmail(f)" #f="ngForm">

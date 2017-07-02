@@ -1,4 +1,15 @@
-.logo {
+.logoRu {
+  position: relative;
+  background-image: url("/assets/label.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: #3e469c;
+  color: #fff;
+  padding: 20% 0;
+  font-family: Montserrat, sans-serif;
+}
+
+.logoHeb {
   position: relative;
   background-image: url("/assets/label.jpg");
   background-size: 100%;

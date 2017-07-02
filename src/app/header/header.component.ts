@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
     this.isIn = bool === false ? true : false;
   }
 
-  constructor(private translate: TranslateService) {
+  constructor(public translate: TranslateService) {
 
   translate.addLangs(['heb', 'ru']);
   translate.setDefaultLang('heb');

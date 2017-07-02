@@ -36,7 +36,7 @@ export class ContactsComponent implements OnInit {
 
   constructor(@Inject(DOCUMENT) private document: Document,
               private appService: AppService,
-              private translate: TranslateService) {
+              public translate: TranslateService) {
   }
 
   ngOnInit() {

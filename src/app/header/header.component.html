@@ -16,10 +16,10 @@
             <li><a pageScroll href="#services">{{ 'Services' | translate }}</a></li>
             <!--<li><a pageScroll href="#portfolio">Фотографии</a></li>-->
             <li><a pageScroll href="#contact">{{ 'Contacts' | translate }}</a></li>
-            <li><select class="form-control text-center selectpicker" data-width="fit"  #langSelect (change)="translate.use(langSelect.value)">
+            <li style="margin-top: 7px"><select class="selectpicker" data-width="fit"  #langSelect (change)="translate.use(langSelect.value)">
               <!--<option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang"> {{ lang }}</option>-->
-              <option data-content='<span class="flag-icon flag-icon-il"></span> עברית' value="heb">עברית</option>
-              <option data-content='<span class="flag-icon flag-icon-ru"></span> Русский' value="ru">Русский</option>
+              <option data-content='<span class="flag-icon flag-icon-il"></span> עברית' value="heb" [selected]="'heb' === translate.currentLang"> עברית</option>
+              <option data-content='<span class="flag-icon flag-icon-ru"></span> Русский' value="ru" [selected]="'ru' === translate.currentLang">Русский</option>
             </select></li>
           </ul>
 

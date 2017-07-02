@@ -58,8 +58,7 @@ export class ServicesComponent implements OnInit {
 
   serv;
 
-  constructor(@Inject(DOCUMENT) private document: Document,
-              private translate: TranslateService) {
+  constructor(@Inject(DOCUMENT) private document: Document) {
   }
 
   ngOnInit() {

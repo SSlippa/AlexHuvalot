@@ -8,8 +8,6 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor(private translate: TranslateService) {
-  }
 
   ngOnInit() {
   }

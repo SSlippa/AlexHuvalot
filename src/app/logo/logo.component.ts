@@ -13,7 +13,7 @@ export class LogoComponent implements OnInit {
   message: IMessage = {};
 
   constructor(private appService: AppService,
-              private translate: TranslateService) {}
+              public translate: TranslateService) {}
 
   ngOnInit() {
   }
